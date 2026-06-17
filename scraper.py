@@ -88,7 +88,7 @@ headers = {
 
 for category_id in category_ids:
 
-```
+
 print("=" * 80)
 print(f"Processing Category ID: {category_id}")
 print("=" * 80)
@@ -132,7 +132,7 @@ for country, language, base_url in shops:
             "StatusCode": "",
             "Error": str(e)
         })
-```
+
 
 # =====================================================
 
