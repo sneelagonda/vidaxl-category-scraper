@@ -1,11 +1,36 @@
-name: Test
+name: vidaXL Scraper
 
 on:
-  workflow_dispatch:
+ workflow_dispatch:
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+ scrape:
+  runs-on: ubuntu-latest
 
-    steps:
-      - run: echo "Hello World"
+  steps:
+  - name: Checkout Repository
+    uses: actions/checkout@v4
+
+  - name: Set up Python
+    uses: actions/setup-python@v5
+    with:
+      python-version: "3.11"
+
+  - name: Install packages
+    run: |
+      pip install pandas requests openpyxl
+
+  - name: Show repository files
+    run: |
+      ls -la
+
+  - name: Run scraper
+    run: |
+      python scraper.py
+
+  - name: Upload Excel
+    uses: actions/upload-artifact@v4
+    with:
+      name: vidaxl-output
+      path: vidaxl_category_urls.xlsx
+
