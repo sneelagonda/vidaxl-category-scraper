@@ -67,12 +67,10 @@ shops = [
 category_ids = []
 
 for url in category_urls:
-match = re.search(r'/g/(\d+)', url)
+    match = re.search(r'/g/(\d+)', url)
 
-```
-if match:
-    category_ids.append(match.group(1))
-```
+    if match:
+        category_ids.append(match.group(1))
 
 print(f"Found {len(category_ids)} category IDs")
 
